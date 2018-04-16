@@ -1,4 +1,5 @@
 from flask_restful import Resource
+from flask import Flask, request
 
 class HelloController(Resource):
 
@@ -6,7 +7,12 @@ class HelloController(Resource):
         return {"response" : "hello get"} 
     
     def post(self):
-        return {"response" : "hello post"}
+        content = request.json
+        airport = content['airport']
+        if (airport == 'JFK'):
+            return {"delayed":"1"}
+        else:
+            return {"delayed":"0"}
 
     def put(self):
         return {"response" : "hello put"}

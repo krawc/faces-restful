@@ -13,7 +13,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 
 db = SQLAlchemy(app)
 
-api.add_resource(helloController.HelloController, '/api/hello')
+api.add_resource(helloController.HelloController, '/api/predict')
 
 if __name__ == '__main__':
     app.run(debug=True)
