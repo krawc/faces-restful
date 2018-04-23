@@ -2,6 +2,8 @@ from flask import Flask
 from flask_restful import Api
 from controllers import helloController
 from flask_sqlalchemy import SQLAlchemy
+from data_processing import data_processor
+
 
 app = Flask(__name__)
 
