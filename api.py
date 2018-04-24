@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_restful import Api
-from flask.ext.cors import CORS, cross_origin
+from flask_cors import CORS, cross_origin
 from controllers import helloController
 from flask_sqlalchemy import SQLAlchemy
 from data_processing import data_processor

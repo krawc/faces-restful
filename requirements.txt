@@ -18,3 +18,4 @@ pandas==0.20.1
 dill==0.2.7.1
 scikit-neuralnetwork==0.7
 scipy==0.19.1
+Flask-Cors==3.0.2
