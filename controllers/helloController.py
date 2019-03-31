@@ -18,17 +18,7 @@ class HelloController(Resource):
     
     def post(self):
         content = request.json
-        data_arr = []
-
-        month = content['month']
-        dayOfWeek = content['dayOfWeek']
-        hour = content['hour']
-        airline = content['airline']
-        airport_dep = content['airport_dep']
-        airport_arr = content['airport_arr']
-
-        data_arr = [month] + [dayOfWeek] + [hour] + [airline] + [airport_dep] + [airport_arr]
-        return {"result":data_processor(data_arr)}
+        return {"result":data_processor(content)}
 
     def put(self):
         return {"response" : "hello put"}
