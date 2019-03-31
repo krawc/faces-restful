@@ -20,7 +20,7 @@ class HelloController(Resource):
     
     def post(self):
         content = request.json
-        return {"result": content["landmarks"]}
+        return {"result": data_processor(content["landmarks"])}
 
     def put(self):
         return {"response" : "hello put"}
