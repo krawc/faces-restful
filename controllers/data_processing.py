@@ -17,5 +17,5 @@ def data_processor(data):
     #print("The model has been loaded...doing predictions now...")
     predictions_agency = model_agency.predict(data_arr)
     predictions_communion = model_communion.predict(data_arr)
-    predictions = "Agency: " + str(predictions_agency) + " Communion: " + str(predictions_communion)
+    predictions = {"agency": str(predictions_agency), "communion": str(predictions_communion)}
     return predictions
