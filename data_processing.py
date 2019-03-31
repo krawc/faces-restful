@@ -1,8 +1,11 @@
 import numpy as np
 import pandas as pd
 import dill as pickle
+from ast import literal_eval
 
 def data_processor(data):
+
+    data_arr = literal_eval(data)
 
     svc1 = './saved_model_agency.pkl'
     svc2 = './saved_model_communion.pkl'
@@ -17,7 +20,7 @@ def data_processor(data):
         model_communion = pickle.load(g)
 
     #print("The model has been loaded...doing predictions now...")
-    predictions_agency = model_agency.predict(data)
-    predictions_communion = model_communion.predict(data)
+    predictions_agency = model_agency.predict(data_arr)
+    predictions_communion = model_communion.predict(data_arr)
     predictions = "Agency: " + str(predictions_agency) + " Communion: " + str(predictions_communion)
     return predictions
