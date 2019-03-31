@@ -16,3 +16,4 @@ Once you install or deploy app you can test it by calling the GET, POST, PUT, an
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
+# faces-restful
