@@ -4,63 +4,20 @@ import dill as pickle
 
 def data_processor(data):
 
-    clf = './model_v3_sc.pk'
-    
-    means = np.array([6.67626347e+00, 3.90717706e+00, 1.37720670e+03, 2.05697082e-01,  3.27578531e-02, 7.34014005e-02, 2.00347305e-01, 1.56014256e-01,  3.31782103e-01, 1.96773408e-05, 5.05707659e-03, 7.87093632e-05,  8.36286984e-05, 6.34594241e-04, 1.72176732e-04, 1.24459181e-03,  6.22492676e-02, 2.70563436e-05, 9.93459744e-03, 7.62496956e-05,  9.83867040e-06, 4.94393188e-03, 9.83867040e-06, 9.22375350e-04,  1.27902715e-04, 9.83867040e-06, 5.41126872e-05, 1.13489063e-02,  4.64877176e-04, 3.00177834e-02, 1.86934738e-04, 2.92700444e-04,  2.70563436e-05, 1.62338062e-04, 4.34377298e-03, 4.33393431e-03,  2.18959610e-02, 2.13991081e-04, 5.16530196e-05, 5.26368867e-04,  6.64110252e-05, 1.47580056e-05, 1.03060072e-03, 5.03493958e-03,  1.72791649e-02, 5.11118927e-03, 1.62338062e-04, 1.50039724e-04,  2.70563436e-05, 1.69717064e-03, 1.22983380e-04, 1.48908277e-02,  4.30441830e-04, 1.81154519e-02, 3.73918669e-02, 4.26506362e-02,  2.95160112e-05, 4.77175515e-04, 1.90943996e-02, 3.36974461e-04,  2.23829752e-04, 1.26180948e-03, 3.44353464e-05, 2.31553108e-02,  8.11690308e-05, 1.86934738e-04, 1.00846372e-04, 9.34673688e-05,  2.45966760e-05, 1.96773408e-05, 1.76431957e-02, 1.84475070e-04,  4.18143492e-05, 7.64956624e-04, 3.19756788e-05, 1.20523712e-04,  6.39513576e-05, 4.99312523e-04, 1.72176732e-04, 3.46813132e-04,  2.21370084e-05, 5.16530196e-05, 7.37900280e-05, 3.72393675e-03,  1.35232525e-02, 7.74795294e-04, 1.96773408e-04, 1.22983380e-04,  1.22983380e-05, 9.29508386e-03, 2.20927344e-02, 4.00925819e-04,  5.16530196e-05, 5.74332385e-03, 5.87860557e-04, 3.68950140e-05,  2.97619780e-04, 1.54959059e-04, 4.46183703e-03, 2.72457380e-02,  2.06612078e-04, 3.61571137e-04, 1.52499391e-04, 3.28267238e-02,  4.36320436e-02, 3.24676123e-04, 7.37900280e-05, 4.42740168e-05,  2.32881328e-02, 1.21753546e-03, 2.95160112e-04, 4.89473853e-04,  4.64877176e-04, 9.67633234e-03, 2.86895629e-02, 1.50039724e-04,  2.34701482e-02, 1.01092338e-03, 2.04152411e-04, 5.18989864e-04,  2.06612078e-02, 5.94747626e-03, 1.35281718e-04, 3.19756788e-05,  3.32055126e-04, 3.68950140e-05, 2.01545163e-02, 1.10881815e-02,  2.95160112e-05, 4.42740168e-05, 6.39513576e-05, 1.14202367e-02,  2.16450749e-03, 1.10685042e-03, 3.14591486e-03, 4.02893553e-03,  4.19939049e-02, 6.98545599e-04, 1.03306039e-04, 6.16884634e-03,  1.09307628e-02, 1.46178045e-02, 3.00694364e-02, 6.03848396e-03,  3.91087148e-04, 7.37900280e-06, 8.11690308e-05, 3.68950140e-04,  1.15850344e-03, 3.71409808e-04, 4.91933520e-06, 7.68400158e-03,  9.19915683e-04, 1.37249452e-03, 4.42740168e-05, 5.78021886e-04,  6.65586053e-03, 1.76456554e-02, 7.58561488e-03, 5.43586540e-04,  8.51044990e-04, 2.40899845e-02, 3.00472994e-02, 2.45966760e-05,  4.18143492e-05, 2.21370084e-05, 9.56564730e-03, 7.25601942e-03,  1.42414754e-02, 9.29508386e-03, 1.02666526e-02, 4.55038506e-04,  1.23918054e-02, 5.75562219e-04, 1.59878394e-04, 1.20523712e-04,  3.39434129e-04, 6.64110252e-05, 1.67306590e-02, 5.65723548e-05,  9.74028370e-04, 1.03797973e-03, 2.70563436e-05, 7.13303604e-05,  1.59878394e-04, 5.16530196e-05, 4.94639154e-03, 6.85238797e-02,  1.08495938e-02, 5.29320468e-03, 1.12898743e-02, 3.18182601e-02,  4.58728007e-03, 4.63893309e-03, 2.25969662e-02, 5.22679365e-03,  1.60911454e-02, 5.28828534e-03, 1.67749330e-03, 1.59706217e-02,  1.87746428e-02, 3.79600501e-02, 4.34820038e-02, 1.84844020e-02,  2.33545439e-02, 1.90009322e-02, 4.27736196e-03, 1.46842156e-02,  9.22375350e-03, 2.11383834e-02, 6.26969271e-03, 4.57498174e-03,  2.87436756e-02, 3.36261158e-02, 4.66156204e-02, 2.41293392e-02,  1.01338305e-02, 3.01260088e-02, 2.29314810e-02, 1.98175419e-02,  5.87122656e-03, 2.09170133e-02, 1.10881815e-02, 1.16071714e-02,  2.46950627e-03, 3.52470367e-03, 4.34623265e-03, 4.04664514e-02,  6.88460961e-03, 1.20351536e-02, 1.45292565e-02, 3.08048770e-02,  6.40497443e-03, 8.26448314e-03, 6.87231128e-03, 1.83515800e-02,  8.53504657e-03, 2.62717096e-02, 3.25217250e-02, 9.68617101e-03,  7.83158164e-03, 1.45120388e-02, 9.97641179e-03, 9.79193672e-03,  1.24778937e-02, 1.78104531e-02])
-    stds = np.array([3.38463664e+00, 1.98435624e+00, 4.82168311e+02, 4.04210085e-01 , 1.78002180e-01, 2.60794239e-01, 4.00260243e-01, 3.62868858e-01 , 4.70853203e-01, 4.43587123e-03, 7.09330851e-02, 8.87148060e-03 , 9.14449040e-03, 2.51831597e-02, 1.31204835e-02, 3.52568121e-02 , 2.41607732e-01, 5.20150089e-03, 9.91761121e-02, 8.73177425e-03 , 3.13665006e-03, 7.01390720e-02, 3.13665006e-03, 3.03566232e-02 , 1.13086850e-02, 3.13665006e-03, 7.35593359e-03, 1.05925014e-01 , 2.15559984e-02, 1.70636210e-01, 1.36711299e-02, 1.71059864e-02 , 5.20150089e-03, 1.27401612e-02, 6.57640070e-02, 6.56898114e-02 , 1.46343869e-01, 1.46268687e-02, 7.18681790e-03, 2.29366912e-02 , 8.14902539e-03, 3.84158663e-03, 3.20864237e-02, 7.07784498e-02 , 1.30309613e-01, 7.13096418e-02, 1.27401612e-02, 1.22481514e-02 , 5.20150089e-03, 4.11617572e-02, 1.10891052e-02, 1.21116022e-01 , 2.07426264e-02, 1.33368970e-01, 1.89720097e-01, 2.02068205e-01 , 5.43278382e-03, 2.18391350e-02, 1.36856872e-01, 1.83537710e-02 , 1.49592664e-02, 3.54995397e-02, 5.86806277e-03, 1.50396617e-01 , 9.00902006e-03, 1.36711299e-02, 1.00417230e-02, 9.66740051e-03 , 4.95944261e-03, 4.43587123e-03, 1.31650725e-01, 1.35809071e-02 , 6.46626637e-03, 2.76472687e-02, 5.65461372e-03, 1.09776676e-02 , 7.99670356e-03, 2.23397227e-02, 1.31204835e-02, 1.86196899e-02 , 4.70494616e-03, 7.18681790e-03, 8.58979529e-03, 6.09103361e-02 , 1.15500537e-01, 2.78243596e-02, 1.40262143e-02, 1.10891052e-02 , 3.50687707e-03, 9.59618949e-02, 1.46985188e-01, 2.00191178e-02 , 7.18681790e-03, 7.55667789e-02, 2.42387082e-02, 6.07401455e-03 , 1.72490928e-02, 1.24472907e-02, 6.66477984e-02, 1.62798673e-01 , 1.43725220e-02, 1.90115860e-02, 1.23481227e-02, 1.78182856e-01 , 2.04275031e-01, 1.80158460e-02, 8.58979529e-03, 6.65372502e-03 , 1.50817094e-01, 3.48719525e-02, 1.71776888e-02, 2.21186407e-02 , 2.15559984e-02, 9.78912710e-02, 1.66932537e-01, 1.22481514e-02 , 1.51391216e-01, 3.17789461e-02, 1.42867327e-02, 2.27754366e-02 , 1.42247398e-01, 7.68902060e-02, 1.16302802e-02, 5.65461372e-03 , 1.82193541e-02, 6.07401455e-03, 1.40528687e-01, 1.04715012e-01 , 5.43278382e-03, 6.65372502e-03, 7.99670356e-03, 1.06253540e-01 , 4.64738894e-02, 3.32509444e-02, 5.60001614e-02, 6.33459013e-02 , 2.00575215e-01, 2.64207803e-02, 1.01634328e-02, 7.82993721e-02 , 1.03977311e-01, 1.20017184e-01, 1.70778410e-01, 7.74727092e-02 , 1.97720560e-02, 2.71642198e-03, 9.00902006e-03, 1.92045311e-02 , 3.40170738e-02, 1.92684162e-02, 2.21795198e-03, 8.73210038e-02 , 3.03161580e-02, 3.70217609e-02, 6.65372502e-03, 2.40351363e-02 , 8.13115001e-02, 1.31659736e-01, 8.67644704e-02, 2.33086047e-02 , 2.91602591e-02, 1.53328592e-01, 1.70717484e-01, 4.95944261e-03 , 6.46626637e-03, 4.70494616e-03, 9.73352233e-02, 8.48726670e-02 , 1.18484834e-01, 9.59618949e-02, 1.00803018e-01, 2.13267777e-02 , 1.10626618e-01, 2.39839727e-02, 1.26432920e-02, 1.09776676e-02 , 1.84206111e-02, 8.14902539e-03, 1.28260454e-01, 7.52124686e-03 , 3.11942244e-02, 3.22009678e-02, 5.20150089e-03, 8.44542908e-03 , 1.26432920e-02, 7.18681790e-03, 7.01564306e-02, 2.52642747e-01 , 1.03594788e-01, 7.25616060e-02, 1.05652321e-01, 1.75515978e-01 , 6.75739368e-02, 6.79515518e-02, 1.48614748e-01, 7.21073802e-02 , 1.25826152e-01, 7.25280593e-02, 4.09228459e-02, 1.25361721e-01 , 1.35728242e-01, 1.91099672e-01, 2.03939499e-01, 1.34694948e-01 , 1.51026849e-01, 1.36528007e-01, 6.52615211e-02, 1.20285450e-01 , 9.55964219e-02, 1.43845584e-01, 7.89327794e-02, 6.74837112e-02 , 1.67085238e-01, 1.80264806e-01, 2.10814146e-01, 1.53450690e-01 , 1.00155559e-01, 1.70934000e-01, 1.49685097e-01, 1.39372906e-01 , 7.63986601e-02, 1.43106575e-01, 1.04715012e-01, 1.07109500e-01 , 4.96327292e-02, 5.92644930e-02, 6.57825426e-02, 1.97050546e-01 , 8.26874341e-02, 1.09042692e-01, 1.19658503e-01, 1.72788705e-01 , 7.97743739e-02, 9.05327645e-02, 8.26140582e-02, 1.34219222e-01 , 9.19902144e-02, 1.59942199e-01, 1.77381122e-01, 9.79405386e-02 , 8.81490100e-02, 1.19588626e-01, 9.93825085e-02, 9.84685467e-02 , 1.11005387e-01, 1.32262016e-01])
-    
-    airlines = ['airline_AA','airline_AS','airline_B6','airline_DL','airline_UA','airline_WN']
-    departure_airports = ['airport_dep_ABE','airport_dep_ABQ','airport_dep_ACK','airport_dep_AGS','airport_dep_ALB','airport_dep_AMA','airport_dep_ANC','airport_dep_ATL','airport_dep_ATW','airport_dep_AUS','airport_dep_AVL','airport_dep_AVP','airport_dep_BDL','airport_dep_BGR','airport_dep_BHM','airport_dep_BIL','airport_dep_BIS','airport_dep_BLI','airport_dep_BNA','airport_dep_BOI','airport_dep_BOS','airport_dep_BQN','airport_dep_BSM','airport_dep_BTR','airport_dep_BTV','airport_dep_BUF','airport_dep_BUR','airport_dep_BWI','airport_dep_BZN','airport_dep_CAE','airport_dep_CAK','airport_dep_CHA','airport_dep_CHO','airport_dep_CHS','airport_dep_CLE','airport_dep_CLT','airport_dep_CMH','airport_dep_COS','airport_dep_CRP','airport_dep_CRW','airport_dep_CVG','airport_dep_DAB','airport_dep_DAL','airport_dep_DAY','airport_dep_DCA','airport_dep_DEN','airport_dep_DFW','airport_dep_DLH','airport_dep_DSM','airport_dep_DTW','airport_dep_ECP','airport_dep_EGE','airport_dep_ELP','airport_dep_EVV','airport_dep_EWR','airport_dep_EYW','airport_dep_FAI','airport_dep_FAR','airport_dep_FAT','airport_dep_FAY','airport_dep_FCA','airport_dep_FLL','airport_dep_FNT','airport_dep_FSD','airport_dep_GEG','airport_dep_GNV','airport_dep_GPT','airport_dep_GRB','airport_dep_GRR','airport_dep_GSO','airport_dep_GSP','airport_dep_GUC','airport_dep_GUM','airport_dep_HDN','airport_dep_HNL','airport_dep_HOU','airport_dep_HPN','airport_dep_HRL','airport_dep_HSV','airport_dep_HYA','airport_dep_IAD','airport_dep_IAH','airport_dep_ICT','airport_dep_ILM','airport_dep_IND','airport_dep_ISP','airport_dep_ITO','airport_dep_JAC','airport_dep_JAN','airport_dep_JAX','airport_dep_JFK','airport_dep_JNU','airport_dep_KOA','airport_dep_KTN','airport_dep_LAS','airport_dep_LAX','airport_dep_LBB','airport_dep_LEX','airport_dep_LFT','airport_dep_LGA','airport_dep_LGB','airport_dep_LIH','airport_dep_LIT','airport_dep_MAF','airport_dep_MCI','airport_dep_MCO','airport_dep_MDT','airport_dep_MDW','airport_dep_MEM','airport_dep_MFE','airport_dep_MHT','airport_dep_MIA','airport_dep_MKE','airport_dep_MLB','airport_dep_MOB','airport_dep_MSN','airport_dep_MSO','airport_dep_MSP','airport_dep_MSY','airport_dep_MTJ','airport_dep_MVY','airport_dep_MYR','airport_dep_OAK','airport_dep_OGG','airport_dep_OKC','airport_dep_OMA','airport_dep_ONT','airport_dep_ORD','airport_dep_ORF','airport_dep_ORH','airport_dep_PBI','airport_dep_PDX','airport_dep_PHL','airport_dep_PHX','airport_dep_PIT','airport_dep_PNS','airport_dep_PSC','airport_dep_PSE','airport_dep_PSP','airport_dep_PVD','airport_dep_PWM','airport_dep_RAP','airport_dep_RDU','airport_dep_RIC','airport_dep_RNO','airport_dep_ROA','airport_dep_ROC','airport_dep_RSW','airport_dep_SAN','airport_dep_SAT','airport_dep_SAV','airport_dep_SDF','airport_dep_SEA','airport_dep_SFO','airport_dep_SGF','airport_dep_SHV','airport_dep_SIT','airport_dep_SJC','airport_dep_SJU','airport_dep_SLC','airport_dep_SMF','airport_dep_SNA','airport_dep_SRQ','airport_dep_STL','airport_dep_STT','airport_dep_STX','airport_dep_SWF','airport_dep_SYR','airport_dep_TLH','airport_dep_TPA','airport_dep_TRI','airport_dep_TUL','airport_dep_TUS','airport_dep_TVC','airport_dep_TYS','airport_dep_VPS','airport_dep_XNA']
-    arrival_airports = ['airport_arr_ABQ','airport_arr_ATL','airport_arr_AUS','airport_arr_BDL','airport_arr_BNA','airport_arr_BOS','airport_arr_BUF','airport_arr_BUR','airport_arr_BWI','airport_arr_CLE','airport_arr_CLT','airport_arr_CMH','airport_arr_CVG','airport_arr_DAL','airport_arr_DCA','airport_arr_DEN','airport_arr_DFW','airport_arr_DTW','airport_arr_EWR','airport_arr_FLL','airport_arr_HNL','airport_arr_HOU','airport_arr_IAD','airport_arr_IAH','airport_arr_IND','airport_arr_JAX','airport_arr_JFK','airport_arr_LAS','airport_arr_LAX','airport_arr_LGA','airport_arr_MCI','airport_arr_MCO','airport_arr_MDW','airport_arr_MIA','airport_arr_MKE','airport_arr_MSP','airport_arr_MSY','airport_arr_OAK','airport_arr_OGG','airport_arr_OMA','airport_arr_ONT','airport_arr_ORD','airport_arr_PBI','airport_arr_PDX','airport_arr_PHL','airport_arr_PHX','airport_arr_PIT','airport_arr_RDU','airport_arr_RSW','airport_arr_SAN','airport_arr_SAT','airport_arr_SEA','airport_arr_SFO','airport_arr_SJC','airport_arr_SJU','airport_arr_SLC','airport_arr_SMF','airport_arr_SNA','airport_arr_STL','airport_arr_TPA']
+    svc1 = './saved_model_agency.pkl'
+    svc2 = './saved_model_communion.pkl'
 
-    API_month = [data[0]]
-    API_dayOfWeek = [data[1]]
-    API_hour = [data[2]]
-    API_airline = [0] * len(airlines)
-    API_airport_dep = [0] * len(departure_airports)
-    API_airport_arr = [0] * len(arrival_airports)
-
-    for x in range(0, len(airlines)):
-        if data[3] == airlines[x]:
-            API_airline[x] = 1
-        else:
-            API_airline[x] = 0
-
-    for x in range(0, len(departure_airports)):
-        if data[4] == departure_airports[x]:
-            API_airport_dep[x] = 1
-        else:
-            API_airport_dep[x] = 0
-
-    for x in range(0, len(arrival_airports)):
-        if data[5] == arrival_airports[x]:
-            API_airport_arr[x] = 1
-        else:
-            API_airport_arr[x] = 0
-
-    data_array = API_month + API_dayOfWeek + API_hour + API_airline + API_airport_dep + API_airport_arr
-
-    test = np.array(data_array)
-
-    testScaled = ((test - means) / stds)
-
-    testScaled = testScaled.reshape(1, -1)
-
-    print(testScaled)
-    print(type(testScaled))
-    
     #print("Loading the model...")
-    loaded_model = None
-    with open(clf,'rb') as f:
-        loaded_model = pickle.load(f)
+    model_agency = None
+    with open(svc1,'rb') as f:
+        model_agency = pickle.load(f)
 
-    #print(loaded_model)
+    model_communion = None
+    with open(svc1,'rb') as g:
+        model_communion = pickle.load(g)
 
     #print("The model has been loaded...doing predictions now...")
-    predictions = loaded_model.predict(testScaled)
-    prediction_series = list(pd.Series(predictions))
-    #print(prediction_series[0])
-    if (prediction_series[0] == 1):
-        return 'HOLDUP'
-    else:
-        return 'ONTIME'
+    predictions_agency = model_agency.predict(data)
+    predictions_communion = model_communion.predict(data)
+    predictions = "Agency: " + str(predictions_agency) + " Communion: " + str(predictions_communion)
+    return predictions
