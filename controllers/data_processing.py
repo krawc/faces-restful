@@ -1,23 +1,21 @@
 import numpy as np
 import pandas as pd
-import dill as pickle
+from ast import literal_eval
+from sklearn.externals import joblib
 
 def data_processor(data):
+
+    data_arr = np.array(literal_eval(data)).reshape(1, -1)
 
     svc1 = './saved_model_agency.pkl'
     svc2 = './saved_model_communion.pkl'
 
     #print("Loading the model...")
-    model_agency = None
-    with open(svc1,'rb') as f:
-        model_agency = pickle.load(f)
-
-    model_communion = None
-    with open(svc1,'rb') as g:
-        model_communion = pickle.load(g)
+    model_agency = joblib.load(svc1) 
+    model_communion = joblib.load(svc2) 
 
     #print("The model has been loaded...doing predictions now...")
-    predictions_agency = model_agency.predict(data)
-    predictions_communion = model_communion.predict(data)
+    predictions_agency = model_agency.predict(data_arr)
+    predictions_communion = model_communion.predict(data_arr)
     predictions = "Agency: " + str(predictions_agency) + " Communion: " + str(predictions_communion)
     return predictions
