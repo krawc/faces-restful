@@ -1,12 +1,11 @@
 import numpy as np
 import pandas as pd
-import dill as pickle
 from ast import literal_eval
 from sklearn.externals import joblib
 
 def data_processor(data):
 
-    data_arr = literal_eval(data)
+    data_arr = np.array(literal_eval(data)).reshape(1, -1)
 
     svc1 = './saved_model_agency.pkl'
     svc2 = './saved_model_communion.pkl'
