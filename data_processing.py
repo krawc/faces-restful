@@ -1,8 +1,8 @@
 import numpy as np
 import pandas as pd
 from ast import literal_eval
-from flask import jsonify
 from sklearn.externals import joblib
+from sklearn.svm import SVC
 
 def data_processor(data):
 
