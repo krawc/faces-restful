@@ -15,7 +15,7 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 
 cors = CORS(app, resources={r"/api/predict": {"origins": "http://localhost:port"}})
 
-@app.route('/foo', methods=['POST'])
+@app.route('/api/predict', methods=['POST'])
 @cross_origin(origin='/api/predict',headers=['Content- Type','Authorization'])
 
 
