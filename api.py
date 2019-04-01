@@ -10,13 +10,13 @@ app = Flask(__name__)
 
 api = Api(app)
 
-cors = CORS(app, resources={'/api/predict': {"origins": "http://localhost:port"}})
+app.config['SECRET_KEY'] = 'the quick brown fox jumps over the lazy   dog'
 app.config['CORS_HEADERS'] = 'Content-Type'
 
-app.route('/foo', methods=['POST','OPTIONS'])
-cross_origin(origin='localhost',headers=['Content-Type','Authorization'])
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///static/db/test.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+cors = CORS(app, resources={r"/api/predict": {"origins": "http://localhost:port"}})
+
+@app.route('/foo', methods=['POST'])
+@cross_origin(origin='/api/predict',headers=['Content- Type','Authorization'])
 
 
 db = SQLAlchemy(app)
