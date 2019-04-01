@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 api = Api(app)
 
-cors = CORS(app, resources={'/api/predict': {"origins": "*"}})
+CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 app.route('/foo', methods=['POST','OPTIONS'])
