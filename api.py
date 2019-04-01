@@ -12,7 +12,7 @@ cors = CORS(app, resources={r"*": {"origins": "*"}})
 
 api = Api(app)
 
-# cors = CORS(app, resources={r'/api/*': {"origins": "*"}})
+cors = CORS(app, resources={r'/api/*': {"origins": "*"}})
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 app.route('/foo', methods=['POST','OPTIONS'])
@@ -28,7 +28,6 @@ api.add_resource(helloController.HelloController, '/api/predict')
 
 def after_request(response):
   response.headers.add('Access-Control-Allow-Origin', '*')
-  response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
   response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE')
   return response
 
