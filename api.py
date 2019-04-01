@@ -8,20 +8,19 @@ from data_processing import data_processor
 
 app = Flask(__name__)
 
+api = Api(app)
 
-cors = CORS(app)
+cors = CORS(app, resources={'/api/predict': {"origins": "*"}})
 app.config['CORS_HEADERS'] = 'Content-Type'
 
-app.route('/api/predict', methods=['POST','OPTIONS'])
+app.route('/foo', methods=['POST','OPTIONS'])
+cross_origin(origin='*',headers=['Content-Type','Authorization'])
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///static/db/test.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
-
-api = Api(app)
 
 
 db = SQLAlchemy(app)
 
-@app.route("/")
 api.add_resource(helloController.HelloController, '/api/predict')
 
 if __name__ == '__main__':
