@@ -8,11 +8,9 @@ from data_processing import data_processor
 
 app = Flask(__name__)
 
-cors = CORS(app, resources={r"*": {"origins": "*"}})
-
 api = Api(app)
 
-cors = CORS(app, resources={r'/api/*': {"origins": "*"}})
+cors = CORS(app, resources={'/api/*': {"origins": "*"}})
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 app.route('/foo', methods=['POST','OPTIONS'])
